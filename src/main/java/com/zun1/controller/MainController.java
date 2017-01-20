@@ -19,6 +19,7 @@ public class MainController {
     @Autowired
     ApplicationContext act;
 
+    //获取bean
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
         Car car = act.getBean("car", Car.class);
@@ -29,9 +30,8 @@ public class MainController {
 
     //打印json数据
     @RequestMapping(value = "/showJson", produces = "text/html;charset=UTF-8")
-    public
     @ResponseBody
-    String showJson() {
+    public String showJson() {
         Car car = act.getBean("car", Car.class);
         ObjectMapper objectMapper = new ObjectMapper();
         try {
@@ -42,6 +42,7 @@ public class MainController {
         return "";
     }
 
+    //PathVariable使用
     @RequestMapping(value = "/{id}")
     public String getID(@PathVariable String id, Model model) {
         model.addAttribute("id", id);
