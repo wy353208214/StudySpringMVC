@@ -28,7 +28,7 @@ public class BookServiceImpl implements BookService {
             categories.add(category);
 
             Book book = new Book();
-            book.setId(i);
+            book.setId((long) i);
             book.setAuthor(bookName[i]);
             book.setIsbn(bookName[i]);
             book.setTitle(bookName[i]);
@@ -71,6 +71,12 @@ public class BookServiceImpl implements BookService {
     }
 
     public long getNextId() {
-        return 0;
+        long nextId = 0L;
+        for (Book book : books) {
+            long id = book.getId();
+            if (id > nextId)
+                nextId = id;
+        }
+        return nextId + 1L;
     }
 }
