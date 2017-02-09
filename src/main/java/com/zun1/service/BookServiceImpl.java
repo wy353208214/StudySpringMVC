@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by 王洋 on 2017/1/23.
@@ -16,8 +17,9 @@ public class BookServiceImpl implements BookService {
     private List<Category> categories = new ArrayList<Category>();
     private List<Book> books = new ArrayList<Book>();
 
-    private String[] cateName = {"Web", "Android", "IOS"};
-    private String[] bookName = {"Spring", "Fresco", "AFNetworking"};
+    private String[] cateName = {"技术", "运营", "管理"};
+    private String[] bookName = {"数据实战", "运营思维", "人才培养"};
+    private String[] authorName = {"张三", "李四", "王五"};
 
 
     public BookServiceImpl() {
@@ -29,8 +31,8 @@ public class BookServiceImpl implements BookService {
 
             Book book = new Book();
             book.setId((long) i);
-            book.setAuthor(bookName[i]);
-            book.setIsbn(bookName[i]);
+            book.setAuthor(authorName[i]);
+            book.setIsbn(Integer.toString(new Random().nextInt(1000) + 1000));
             book.setTitle(bookName[i]);
             book.setCategory(category);
             books.add(book);
@@ -59,6 +61,15 @@ public class BookServiceImpl implements BookService {
     }
 
     public Book updateBook(Book book) {
+        for (int i = 0; i < books.size(); i++) {
+            Book oldBook = books.get(i);
+            if (oldBook.getId() == book.getId()) {
+                oldBook.setTitle(book.getTitle());
+                oldBook.setIsbn(book.getIsbn());
+                oldBook.setAuthor(book.getAuthor());
+                return oldBook;
+            }
+        }
         return null;
     }
 

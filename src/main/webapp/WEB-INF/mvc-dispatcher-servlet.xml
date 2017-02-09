@@ -30,4 +30,7 @@
         <property name="people" ref="people"/>
     </bean>
 
+    <bean id="book" class="com.zun1.model.Book">
+    </bean>
+
 </beans>
