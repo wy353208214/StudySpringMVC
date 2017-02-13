@@ -56,6 +56,7 @@ public class BookServiceImpl implements BookService {
     }
 
     public Book saveBook(Book book) {
+        book.setId(getNextId());
         books.add(book);
         return book;
     }
