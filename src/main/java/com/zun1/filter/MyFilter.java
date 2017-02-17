@@ -2,7 +2,6 @@ package com.zun1.filter;
 
 import java.io.IOException;
 import java.util.Enumeration;
-import java.util.Iterator;
 
 /**
  * Created by 王洋 on 2017/1/19.
