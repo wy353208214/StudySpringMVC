@@ -11,7 +11,7 @@
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler/>
     <!-- 开启注解 -->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="convertService"/>
     <!--ViewResolver 视图解析器-->
     <!--用于支持Servlet、JSP视图解析-->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -31,6 +31,16 @@
     </bean>
 
     <bean id="book" class="com.zun1.model.Book">
+    </bean>
+
+    <bean id="convertService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.zun1.converter.DateConverter">
+                    <constructor-arg type="java.lang.String" value="yy-mm-dd"/>
+                </bean>
+            </list>
+        </property>
     </bean>
 
 </beans>
