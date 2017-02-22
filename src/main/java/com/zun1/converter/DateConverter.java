@@ -18,13 +18,12 @@ public class DateConverter implements Converter<String, Date>{
     }
 
     public Date convert(String s) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-        simpleDateFormat.applyLocalizedPattern(pattern);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         simpleDateFormat.setLenient(false);
         try {
             return simpleDateFormat.parse(s);
         } catch (ParseException e) {
-            throw new IllegalArgumentException(s);
+            throw new IllegalArgumentException(e.toString());
         }
     }
 }

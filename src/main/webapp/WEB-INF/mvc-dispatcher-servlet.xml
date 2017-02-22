@@ -23,6 +23,7 @@
     <bean id="people" class="com.zun1.model.People">
         <property name="name" value="王洋"/>
         <property name="age" value="27"/>
+        <property name="birthday" ref="date"/>
     </bean>
 
     <bean id="car" class="com.zun1.model.Car">
@@ -30,14 +31,23 @@
         <property name="people" ref="people"/>
     </bean>
 
+    <bean id="date" class="java.util.Date">
+        <property name="time" value="606801600000"></property>
+    </bean>
+
     <bean id="book" class="com.zun1.model.Book">
     </bean>
 
+    <!--转换器-->
     <bean id="convertService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <list>
                 <bean class="com.zun1.converter.DateConverter">
-                    <constructor-arg type="java.lang.String" value="yy-mm-dd"/>
+                    <constructor-arg type="java.lang.String" value="yyyy-mm-dd"/>
+                </bean>
+
+                <bean class="com.zun1.converter.DateConverter">
+                    <constructor-arg type="java.lang.String" value="yyyymmdd"/>
                 </bean>
             </list>
         </property>

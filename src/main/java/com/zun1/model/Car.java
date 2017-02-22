@@ -1,5 +1,7 @@
 package com.zun1.model;
 
+import java.util.Date;
+
 /**
  * Created by 王洋 on 2016/12/19.
  */
@@ -10,6 +12,7 @@ public class Car {
 
     public Car() {
     }
+
 
     public People getPeople() {
         return people;
