@@ -12,6 +12,7 @@
     <mvc:default-servlet-handler/>
     <!-- 开启注解 -->
     <mvc:annotation-driven conversion-service="convertService"/>
+
     <!--ViewResolver 视图解析器-->
     <!--用于支持Servlet、JSP视图解析-->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -25,16 +26,13 @@
         <property name="age" value="27"/>
         <property name="birthday" ref="date"/>
     </bean>
-
     <bean id="car" class="com.zun1.model.Car">
         <property name="carName" value="BMW"/>
         <property name="people" ref="people"/>
     </bean>
-
     <bean id="date" class="java.util.Date">
         <property name="time" value="606801600000"></property>
     </bean>
-
     <bean id="book" class="com.zun1.model.Book">
     </bean>
 
@@ -52,5 +50,11 @@
             </list>
         </property>
     </bean>
+
+    <!--错误messages-->
+    <bean id="messageResource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="/WEB-INF/messages/messages"/>
+    </bean>
+
 
 </beans>
