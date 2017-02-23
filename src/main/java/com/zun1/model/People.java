@@ -35,12 +35,4 @@ public class People {
         this.birthday = birthday;
     }
 
-    @Override
-    public String toString() {
-        return "People{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", birthday=" + birthday.toString() +
-                '}';
-    }
 }

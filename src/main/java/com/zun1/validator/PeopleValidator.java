@@ -16,8 +16,8 @@ public class PeopleValidator implements Validator {
 
     public void validate(Object target, Errors errors) {
         People people = (People) target;
-        ValidationUtils.rejectIfEmpty(errors, "name", "peopleName.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "peopleName.required", "字段不能为空");
         if (people.getAge() <= 0)
-            errors.rejectValue("age", "peopleAge.required");
+            errors.rejectValue("age", "peopleAge.required", "年龄不能小于0");
     }
 }

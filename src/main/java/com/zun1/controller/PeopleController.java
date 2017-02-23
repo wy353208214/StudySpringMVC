@@ -1,6 +1,7 @@
 package com.zun1.controller;
 
 import com.zun1.model.People;
+import com.zun1.validator.PeopleValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,6 +23,8 @@ public class PeopleController {
 
     @RequestMapping(value = "/people_save")
     public String savePeople(@ModelAttribute People people, BindingResult bindingResult) {
+        PeopleValidator peopleValidator = new PeopleValidator();
+        peopleValidator.validate(people, bindingResult);
         if (bindingResult.hasErrors()) {
             FieldError fieldError = bindingResult.getFieldError();
             System.out.println("code:" + fieldError.getCode() + "," + "field:" + fieldError.getField());

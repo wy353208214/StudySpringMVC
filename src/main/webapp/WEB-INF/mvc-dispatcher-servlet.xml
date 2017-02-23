@@ -52,8 +52,12 @@
     </bean>
 
     <!--错误messages-->
-    <bean id="messageResource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="/WEB-INF/messages/messages"/>
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="/WEB-INF/message"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="fileEncodings" value="UTF-8"/>
+        <property name="useCodeAsDefaultMessage" value="false"/>
     </bean>
 
 
