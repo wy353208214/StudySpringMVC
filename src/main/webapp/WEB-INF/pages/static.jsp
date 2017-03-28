@@ -12,6 +12,8 @@
     <title>PathVariable</title>
 </head>
 <body>
-    <p>${id}</p>
+    <h4>pageContext:</h4>${pageContext.session.getAttribute("a").toString()}
+    <br>
+    <h4>initParam:</h4>${initParam.get("password")}
 </body>
 </html>

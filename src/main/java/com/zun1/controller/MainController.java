@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
 
 /**
@@ -25,11 +26,12 @@ public class MainController {
 
     //获取bean
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index() {
-        Car car = act.getBean("car", Car.class);
-        System.out.println(car.getPeople().getName());
-        System.out.println(car.getCarName());
-        return "index";
+    public String index(HttpSession httpSession) {
+//        Car car = act.getBean("car", Car.class);
+//        System.out.println(car.getPeople().getName());
+//        System.out.println(car.getCarName());
+        httpSession.setAttribute("a", "name");
+        return "static";
     }
 
     //打印json数据

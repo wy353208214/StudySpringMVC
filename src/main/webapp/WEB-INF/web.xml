@@ -8,6 +8,11 @@
          version="3.1">
 
   <display-name>SpringMVCDemo Web Application</display-name>
+  <!--测试初始化参数-->
+  <context-param>
+    <param-name>password</param-name>
+    <param-value>123456</param-value>
+  </context-param>
 
   <servlet>
     <servlet-name>mvc-dispatcher</servlet-name>
