@@ -21,6 +21,8 @@
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
+
+
     </bean>
 
     <bean id="people" class="com.zun1.model.People">
@@ -41,7 +43,7 @@
     <!--转换器-->
     <bean id="convertService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
-            <list>
+            <>
                 <bean class="com.zun1.converter.DateConverter">
                     <constructor-arg type="java.lang.String" value="yyyy-mm-dd"/>
                 </bean>
@@ -49,7 +51,7 @@
                 <bean class="com.zun1.converter.DateConverter">
                     <constructor-arg type="java.lang.String" value="yyyymmdd"/>
                 </bean>
-            </list>
+            </>
         </property>
     </bean>
 
